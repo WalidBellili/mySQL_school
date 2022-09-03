@@ -250,4 +250,84 @@ mysql> SELECT * FROM favorites;
 
 
 
-                                
+                                mysql> CREATE TABLE students_languages (
+    -> id INT NOT NULL AUTO_INCREMENT,
+    -> student_id INT,
+    -> language_id INT,
+    -> PRIMARY KEY (id),
+    -> FOREIGN KEY (student_id) REFERENCES students(id),
+    -> FOREIGN KEY (language_id) REFERENCES languages(id));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> DESCRIBE students_languages;
++-------------+------+------+-----+---------+----------------+
+| Field       | Type | Null | Key | Default | Extra          |
++-------------+------+------+-----+---------+----------------+
+| id          | int  | NO   | PRI | NULL    | auto_increment |
+| student_id  | int  | YES  | MUL | NULL    |                |
+| language_id | int  | YES  | MUL | NULL    |                |
++-------------+------+------+-----+---------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (1, 1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (1, 2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (2, 1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (2, 3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (3, 1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (4, 1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (4, 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (4, 4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (4, 5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (5, 1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (5, 5);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (6, 1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (6, 2);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO students_languages (student_id, language_id) VALUES (6, 3);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM students_languages;
++----+------------+-------------+
+| id | student_id | language_id |
++----+------------+-------------+
+|  1 |          1 |           1 |
+|  2 |          1 |           2 |
+|  3 |          2 |           1 |
+|  4 |          2 |           3 |
+|  5 |          3 |           1 |
+|  6 |          4 |           1 |
+|  7 |          4 |           2 |
+|  8 |          4 |           4 |
+|  9 |          4 |           5 |
+| 10 |          5 |           1 |
+| 11 |          5 |           5 |
+| 12 |          6 |           1 |
+| 13 |          6 |           2 |
+| 14 |          6 |           3 |
++----+------------+-------------+
+14 rows in set (0.00 sec)
