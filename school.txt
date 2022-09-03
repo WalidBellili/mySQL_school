@@ -358,5 +358,44 @@ mysql> SELECT * FROM students WHERE id=6;
 
 3)****
 
+mysql> SELECT students.name, students.city FROM students WHERE id=1;
++-----------+-------+
+| name      | city  |
++-----------+-------+
+| Véronique | Paris |
++-----------+-------+
+1 row in set (0.00 sec)
 
+4)****
+
+mysql> SELECT students.name FROM students WHERE id=2;
++---------+
+| name    |
++---------+
+| Steeven |
++---------+
+1 row in set (0.00 sec)
+
+5)****
+
+mysql> SELECT * FROM students WHERE city="Paris";
++----+-----------+-------+
+| id | name      | city  |
++----+-----------+-------+
+|  1 | Véronique | Paris |
+|  5 | Romain    | Paris |
+|  6 | Sophie    | Paris |
++----+-----------+-------+
+3 rows in set (0.00 sec)
+
+6)****
+
+mysql> SELECT * FROM students WHERE city="Lyon";
++----+---------+------+
+| id | name    | city |
++----+---------+------+
+|  2 | Steeven | Lyon |
+|  4 | Nour    | Lyon |
++----+---------+------+
+2 rows in set (0.00 sec)
 
