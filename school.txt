@@ -331,3 +331,32 @@ mysql> SELECT * FROM students_languages;
 | 14 |          6 |           3 |
 +----+------------+-------------+
 14 rows in set (0.00 sec)
+
+/***********************************LEVEL 1***********************************/
+
+
+1)****
+
+
+mysql> SELECT * FROM students WHERE id=3;
++----+------+-----------+
+| id | name | city      |
++----+------+-----------+
+|  3 | Marc | Marseille |
++----+------+-----------+
+1 row in set (0.00 sec)
+
+2)****
+
+mysql> SELECT * FROM students WHERE id=6;
++----+--------+-------+
+| id | name   | city  |
++----+--------+-------+
+|  6 | Sophie | Paris |
++----+--------+-------+
+1 row in set (0.00 sec)
+
+3)****
+
+
+
