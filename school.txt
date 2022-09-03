@@ -1,0 +1,113 @@
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| school             |
+| students           |
+| sys                |
+| youtube            |
+| youtubedb          |
+| ytdb               |
++--------------------+
+9 rows in set (0.05 sec)
+
+/*************************************************/
+
+mysql> CREATE DATABASE school2
+    -> ;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| school             |
+| school2            |
+| students           |
+| sys                |
+| youtube            |
+| youtubedb          |
+| ytdb               |
++--------------------+
+10 rows in set (0.01 sec)
+
+mysql> USE school2;
+Database changed
+
+/*************************************************/
+
+mysql> SELECT DATABASE() FROM DUAL;
++------------+
+| DATABASE() |
++------------+
+| school2    |
++------------+
+1 row in set (0.00 sec)
+
+/*************************************************/
+
+                                        POST FIRST TABLE 
+
+mysql> CREATE TABLE students (
+    -> id INT NOT NULL AUTO_INCREMENT,
+    -> name TEXT,
+    -> city TEXT,
+    -> PRIMARY KEY(id));
+Query OK, 0 rows affected (0.04 sec)    
+
+mysql> Describe students;
++-------+------+------+-----+---------+----------------+
+| Field | Type | Null | Key | Default | Extra          |
++-------+------+------+-----+---------+----------------+
+| id    | int  | NO   | PRI | NULL    | auto_increment |
+| name  | text | YES  |     | NULL    |                |
+| city  | text | YES  |     | NULL    |                |
++-------+------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> INSERT INTO students (name, city) VALUES ("Véronique", "Paris");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM students;
++----+-----------+-------+
+| id | name      | city  |
++----+-----------+-------+
+|  1 | Véronique | Paris |
++----+-----------+-------+
+1 row in set (0.00 sec)      
+
+mysql> INSERT INTO students (name, city) VALUES ("Steeven", "Lyon");  
+Query OK, 1 row affected (0.01 sec)                                   
+                                                                      
+mysql> INSERT INTO students (name, city) VALUES ("Marc", "Marseille");
+Query OK, 1 row affected (0.01 sec)                                   
+                                                                      
+mysql> INSERT INTO students (name, city) VALUES ("Nour", "Lyon");     
+Query OK, 1 row affected (0.01 sec)                                   
+                                                                      
+mysql> INSERT INTO students (name, city) VALUES ("Romain", "Paris");  
+Query OK, 1 row affected (0.01 sec)                                   
+                                                                      
+mysql> INSERT INTO students (name, city) VALUES ("Sophie", "Paris");  
+Query OK, 1 row affected (0.01 sec)                                   
+                                                                      
+mysql> SELECT * FROM students;                                        
++----+-----------+-----------+                                        
+| id | name      | city      |                                        
++----+-----------+-----------+                                        
+|  1 | Véronique | Paris     |                                        
+|  2 | Steeven   | Lyon      |                                        
+|  3 | Marc      | Marseille |                                        
+|  4 | Nour      | Lyon      |                                        
+|  5 | Romain    | Paris     |                                        
+|  6 | Sophie    | Paris     |                                        
++----+-----------+-----------+                                        
+6 rows in set (0.00 sec)   
+
+/*************************************************/
