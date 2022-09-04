@@ -618,7 +618,48 @@ mysql>
 
 1)****
 
+mysql> SELECT * FROM students
+    -> WHERE students.name LIKE "%e%";
++----+-----------+-------------+
+| id | name      | city        |
++----+-----------+-------------+
+|  1 | Véronique | Los Angeles |
+|  2 | Steeven   | Lyon        |
+|  6 | Sophie    | Paris       |
++----+-----------+-------------+
+3 rows in set (0.00 sec)
 
+2)****
+
+mysql> SELECT favorites.sport FROM students
+    -> INNER JOIN favorites
+    -> ON students.id = favorites.student_id
+    -> WHERE students.name LIKE "%e%";
++---------+
+| sport   |
++---------+
+| Boxing  |
+| Cricket |
+| Hip-Hop |
++---------+
+3 rows in set (0.00 sec)
+
+3)****
+
+mysql> SELECT students.city,
+    -> favorites.class
+    -> FROM students
+    -> INNER JOIN favorites
+    -> ON students.id = favorites.student_id
+    -> WHERE students.city LIKE "%i%";
++-----------+------------------+
+| city      | class            |
++-----------+------------------+
+| Marseille | Literature       |
+| Paris     | Computer science |
+| Paris     | Music            |
++-----------+------------------+
+3 rows in set (0.00 sec)
 
 
 
