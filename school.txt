@@ -504,3 +504,56 @@ mysql> SELECT COUNT(students.id)
 
 1)****
 
+mysql> SELECT students.*, languages.name FROM students
+    -> INNER JOIN students_languages
+    -> ON students.id = students_languages.student_id
+    -> INNER JOIN languages
+    -> ON students_languages.language_id = languages.id
+    -> WHERE students.id=1;
++----+-----------+-------+---------+
+| id | name      | city  | name    |
++----+-----------+-------+---------+
+|  1 | Véronique | Paris | French  |
+|  1 | Véronique | Paris | English |
++----+-----------+-------+---------+
+2 rows in set (0.00 sec)
+
+
+2)****
+
+mysql> SELECT students.*, languages.name FROM students
+    -> INNER JOIN students_languages
+    -> ON students.id = students_languages.student_id
+    -> INNER JOIN languages
+    -> ON students_languages.language_id = languages.id
+    -> WHERE students.id=4;
++----+------+------+----------+
+| id | name | city | name     |
++----+------+------+----------+
+|  4 | Nour | Lyon | French   |
+|  4 | Nour | Lyon | English  |
+|  4 | Nour | Lyon | Spanish  |
+|  4 | Nour | Lyon | Mandarin |
++----+------+------+----------+
+4 rows in set (0.00 sec)
+
+3)****
+
+mysql> SELECT students.*, languages.name FROM students
+    -> INNER JOIN students_languages
+    -> ON students.id = students_languages.student_id
+    -> INNER JOIN languages
+    -> ON students_languages.language_id = languages.id
+    -> WHERE students.id=5;
++----+--------+-------+----------+
+| id | name   | city  | name     |
++----+--------+-------+----------+
+|  5 | Romain | Paris | French   |
+|  5 | Romain | Paris | Mandarin |
++----+--------+-------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+
